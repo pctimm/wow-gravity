@@ -7,15 +7,15 @@ public class main {
 		
 		// Thread.sleep(ms); para dar o tempo correto.
 		System.out.println("Onde você está nesse momento?");
-		System.out.println("[1] Terra\n"
-						+  "[2] Sol\n"
-						+ "[3] Mercúrio\n"
-						+ "[4] Vênus\n"
-						+ "[5] Marte\n"
-						+ "[6] Júpiter\n"
-						+ "[7] Saturno\n"
-						+ "[8] Urano\n"
-						+ "[9] Netuno");
+		System.out.println("[1] Terra  (g = 9,807 m/s²)\n"
+						+  "[2] Sol  (g = 274 m/s²)\n"
+						+ "[3] Mercúrio  (g = 3,7 m/s²)\n"
+						+ "[4] Vênus  (g = 8,87 m/s²)\n"
+						+ "[5] Marte  (g = 3,721 m/s²)\n"
+						+ "[6] Júpiter  (g = 24,79 m/s²)\n"
+						+ "[7] Saturno  (g = 10,44 m/s²)\n"
+						+ "[8] Urano  (g = 8,87 m/s²)\n"
+						+ "[9] Netuno  (g = 1,15 m/s²)");
 		int planet;
 		do {
 			System.out.print(">>> ");
@@ -107,8 +107,30 @@ public class main {
 		System.in.read();
 		double timeFall = Math.sqrt((height * 2.0) / (gravity * weight));
 		double timeFallMilli = timeFall * 1000;
+		
+		double timeToEnd = timeFallMilli;
+		int counter = 0;
+		/* while (timeToEnd > 0) {
+		*	if (counter > 30) {
+		*		System.out.println();
+		*		counter = 0;
+		*	}
+		*	System.out.print(".");
+		*	counter ++;
+		*	if (timeToEnd >= 100) {
+		*		Thread.sleep(100);
+		*		timeToEnd -= 100;
+		*	}
+		*	else {
+		*		Thread.sleep((int) timeToEnd);
+		*		timeToEnd = 0;
+		*	}
+		*}
+		*/
 		Thread.sleep((int) timeFallMilli);
-		System.out.println("caiu!");
+		System.out.println("eita caiu!");
+		System.out.printf("Tempo: %.5f s\n", timeFall);
+		input.close();
 	}
 
 }
