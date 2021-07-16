@@ -84,28 +84,9 @@ public class main {
 		}
 		System.out.printf("\n>>> ");
 		double height = input.nextDouble();
-		System.out.println("E qual é o peso disso que está na sua mão (em Kg)?");
-		System.out.printf(">>> ");
-		double weight = input.nextDouble();
-		String dialogue03 = "isso é mais pesado que, quer dizer,";
-		String dialogue04 = "tem mais massa que duas Coca-Cola Zero 2L '-'";
-		if (weight > 4.0) {
-			int text1len = dialogue03.length();
-			int text2len = dialogue04.length();
-			for (int i = 0; i < text1len; i ++) {
-				System.out.print(dialogue03.charAt(i));
-				Thread.sleep(20);
-			}
-			System.out.println();
-			for (int i = 0; i < text2len; i ++) {
-				System.out.print(dialogue04.charAt(i));
-				Thread.sleep(20);
-			}
-			System.out.println();
-		}
 		System.out.println("Pressione ENTER para largar esse objeto! (mas isso não é perigoso?)");
 		System.in.read();
-		double timeFall = Math.sqrt((height * 2.0) / (gravity * weight));
+		double timeFall = Math.sqrt((height * 2.0) / gravity);
 		double timeFallMilli = timeFall * 1000;
 		
 		double timeToEnd = timeFallMilli;
