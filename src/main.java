@@ -25,14 +25,7 @@ public class main {
 				if (planet != 1) {
 					System.out.print("Eu acho que acredito... ");
 					Thread.sleep(1200);
-					String euAcho = "eu acho...";
-					int len = euAcho.length();
-					int timeWillBe = 1000 / len;
-					for (int i = 0; i < len; i ++) {
-						System.out.print(euAcho.charAt(i));
-						Thread.sleep(timeWillBe);
-					}
-					System.out.println();
+					writeText("eu acho...", 1);
 				}
 				break;
 			}
@@ -76,12 +69,7 @@ public class main {
 		}
 		System.out.println("Você está no topo de um prédio. Qual a altura (em metros)?");
 		Thread.sleep(1000);
-		for (int i = 0;
-				i < "Porque aqui nós trabalhamos com padrões internacionais :D wow".length();
-				i ++) {
-			System.out.print("Porque aqui nós trabalhamos com padrões internacionais :D wow".charAt(i));
-			Thread.sleep(20);
-		}
+		writeText("Porque aqui é o sistema internacional de medidas :)", 3);
 		System.out.printf("\n>>> ");
 		double height = input.nextDouble();
 		System.out.println("Pressione ENTER para largar esse objeto! (mas isso não é perigoso?)");
@@ -112,6 +100,17 @@ public class main {
 		System.out.println("eita caiu!");
 		System.out.printf("Tempo: %.5f s\n", timeFall);
 		input.close();
+	}
+	
+	static void writeText(String text, double time) throws InterruptedException {
+		int tamanho = text.length();
+		time = time * 1000;
+		double interval = time / tamanho;
+		for (int i = 0; i < tamanho; i ++) {
+			System.out.print(text.charAt(i));
+			Thread.sleep((int) interval);
+		}
+		System.out.println();
 	}
 
 }
