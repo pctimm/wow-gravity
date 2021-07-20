@@ -79,23 +79,23 @@ public class main {
 		
 		double timeToEnd = timeFallMilli;
 		int counter = 0;
-		/* while (timeToEnd > 0) {
-		*	if (counter > 30) {
-		*		System.out.println();
-		*		counter = 0;
-		*	}
-		*	System.out.print(".");
-		*	counter ++;
-		*	if (timeToEnd >= 100) {
-		*		Thread.sleep(100);
-		*		timeToEnd -= 100;
-		*	}
-		*	else {
-		*		Thread.sleep((int) timeToEnd);
-		*		timeToEnd = 0;
-		*	}
-		*}
-		*/
+		while (timeToEnd > 0) {
+			if (counter > 30) {
+				System.out.println();
+				counter = 0;
+			}
+			System.out.println(".");
+			counter ++;
+			if (timeToEnd >= 100) {
+				Thread.sleep(100);
+				timeToEnd -= 100;
+			}
+			else {
+				Thread.sleep((int) timeToEnd);
+				timeToEnd = 0;
+			}
+		}
+		
 		Thread.sleep((int) timeFallMilli);
 		System.out.println("eita caiu!");
 		System.out.printf("Tempo: %.5f s\n", timeFall);
@@ -104,7 +104,8 @@ public class main {
 	
 	static void writeText(String text, double time) throws InterruptedException {
 		int tamanho = text.length();
-		time = time * 1000;
+		final int secondsToMs = 1000;
+		time = time * secondsToMs;  // milliseconds
 		double interval = time / tamanho;
 		for (int i = 0; i < tamanho; i ++) {
 			System.out.print(text.charAt(i));
