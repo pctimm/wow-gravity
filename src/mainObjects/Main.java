@@ -1,12 +1,18 @@
+package mainObjects;
 import java.io.IOException;
-import java.util.Scanner;
-public class main {
+import util.AnimatedPrinting;
+import java.util.*;
+
+public class Main {
 
 	public static void main(String[] args) throws InterruptedException, IOException {
 		Scanner input = new Scanner(System.in);
 		
 		// Thread.sleep(ms); para dar o tempo correto.
+		
 		System.out.println("Onde você está nesse momento?");
+		
+		for ()
 		System.out.println("[1] Terra  (g = 9,807 m/s²)\n"
 						+  "[2] Sol  (g = 274 m/s²)\n"
 						+ "[3] Mercúrio  (g = 3,7 m/s²)\n"
@@ -25,7 +31,7 @@ public class main {
 				if (planet != 1) {
 					System.out.print("Eu acho que acredito... ");
 					Thread.sleep(1200);
-					writeText("eu acho...", 1);
+					AnimatedPrinting.writeText("eu acho...", 1);
 				}
 				break;
 			}
@@ -69,7 +75,7 @@ public class main {
 		}
 		System.out.println("Você está no topo de um prédio. Qual a altura (em metros)?");
 		Thread.sleep(1000);
-		writeText("Porque aqui é o sistema internacional de medidas :)", 3);
+		AnimatedPrinting.writeText("Porque aqui é o sistema internacional de medidas :)", 3);
 		System.out.printf("\n>>> ");
 		double height = input.nextDouble();
 		System.out.println("Pressione ENTER para largar esse objeto! (mas isso não é perigoso?)");
@@ -100,18 +106,6 @@ public class main {
 		System.out.println("eita caiu!");
 		System.out.printf("Tempo: %.5f s\n", timeFall);
 		input.close();
-	}
-	
-	static void writeText(String text, double time) throws InterruptedException {
-		int tamanho = text.length();
-		final int secondsToMs = 1000;
-		time = time * secondsToMs;  // milliseconds
-		double interval = time / tamanho;
-		for (int i = 0; i < tamanho; i ++) {
-			System.out.print(text.charAt(i));
-			Thread.sleep((int) interval);
-		}
-		System.out.println();
 	}
 
 }
