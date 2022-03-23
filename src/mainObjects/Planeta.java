@@ -24,14 +24,21 @@ public class Planeta {
 		return listaPlanetas;
 	}
 	
+	/*
+	 * Envia para a lista um objeto Planeta já instanciado
+	 */
 	public static void pushPlaneta(Planeta planetaAdicionado) {
 		listaPlanetas.add(planetaAdicionado);
 		quantidadePlanetas ++;
 	}
 	
+	/*
+	 * Instancia automaticamente um novo planeta
+	 */
 	public static void pushPlaneta(String nome, double gravity) {
 		Planeta planetaAdicionado = new Planeta(nome, gravity);
 		listaPlanetas.add(planetaAdicionado);
 		quantidadePlanetas ++;
 	}
+	
 }
