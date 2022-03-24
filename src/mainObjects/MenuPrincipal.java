@@ -1,15 +1,25 @@
 package mainObjects;
 import java.util.Scanner;
-import util.PromptInput;
 
 import ui.PlanetaUi;
+import util.PromptInput;
+
 public class MenuPrincipal {
-	Scanner teclado = new Scanner(System.in);
+	private Scanner teclado; 
+	
+	private Planeta selecionado;
 	
 	MenuPrincipal() {
+		// Inicializando input pelo console
+		teclado = new Scanner(System.in);
+		selecionado = null;
+		
 		while (true) {
+			selecionado = Planeta.modelo;
+			
 			System.out.println("-=-=- MENU PRINCIPAL -=-=-");
-			System.out.println("PLANETAS: " + Planeta.quantidadePlanetas);
+			System.out.println("PLANETAS: " + Planeta.getQuantidadePlanetas());
+			System.out.println("SELECIONADO: " + selecionado.getNome());
 			System.out.println("[1] Adicionar planeta");
 			System.out.println("[2] Ver planetas");
 			System.out.println("[3] Selecionar planeta");

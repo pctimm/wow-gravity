@@ -2,9 +2,10 @@ package mainObjects;
 import java.util.ArrayList;
 
 public class Planeta {
+	public static final Planeta modelo = new Planeta("Nenhum", 0);
 	private String nome;
 	private double gravity;
-	public static int quantidadePlanetas = 0;
+	private static int quantidadePlanetas = 0;
 	private static ArrayList<Planeta> listaPlanetas = new ArrayList<>();
 	
 	public Planeta(String nome, double gravity) {
@@ -18,6 +19,10 @@ public class Planeta {
 	
 	public double getGravity() {
 		return this.gravity;
+	}
+	
+	public static int getQuantidadePlanetas() {
+		return Planeta.quantidadePlanetas;
 	}
 	
 	public static ArrayList<Planeta> getListaPlanetas() {
