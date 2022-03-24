@@ -46,4 +46,11 @@ public class Planeta {
 		quantidadePlanetas ++;
 	}
 	
+	/*
+	 * Recebe index (começando por 0), tratar anteriormente
+	 */
+	public static Planeta getPlaneta(int index) {
+		return listaPlanetas.get(index);
+	}
+	
 }

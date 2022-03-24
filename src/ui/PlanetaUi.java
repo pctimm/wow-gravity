@@ -33,4 +33,10 @@ public class PlanetaUi {
 		}
 		System.out.println();
 	}
+	
+	public static Planeta selecionarPlaneta() {
+		int opcao = Integer.parseInt(PromptInput.readInput(
+				String.format("Selecione um planeta [1~%d]", Planeta.getQuantidadePlanetas())));
+		return Planeta.getPlaneta(opcao - 1);
+	}
 }

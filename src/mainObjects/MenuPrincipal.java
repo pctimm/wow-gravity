@@ -1,21 +1,18 @@
 package mainObjects;
-import java.util.Scanner;
 
 import ui.PlanetaUi;
 import util.PromptInput;
 
 public class MenuPrincipal {
-	private Scanner teclado; 
 	
 	private Planeta selecionado;
 	
 	MenuPrincipal() {
 		// Inicializando input pelo console
-		teclado = new Scanner(System.in);
-		selecionado = null;
+
+		selecionado = Planeta.modelo;
 		
 		while (true) {
-			selecionado = Planeta.modelo;
 			
 			System.out.println("-=-=- MENU PRINCIPAL -=-=-");
 			System.out.println("PLANETAS: " + Planeta.getQuantidadePlanetas());
@@ -35,6 +32,9 @@ public class MenuPrincipal {
 						break;
 					case 2:
 						PlanetaUi.mostrarPlanetas();
+						break;
+					case 3:
+						selecionado = PlanetaUi.selecionarPlaneta();
 						break;
 					case 4:
 						System.out.println("aqui deve executar script gravidade");
