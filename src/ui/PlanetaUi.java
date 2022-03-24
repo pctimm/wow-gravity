@@ -8,10 +8,17 @@ public class PlanetaUi {
 	
 	public static void uiCriarPlaneta() {
 		System.out.println("-=-=- CRIANDO NOVO PLANETA -=-=-");
-		String nome = PromptInput.readInput("NOME");
-		double gravidade = Double.parseDouble(PromptInput.readInput("GRAVIDADE"));
+		String nome = PromptInput.readInput("NOME"); // bem livre
 		
-		Planeta.pushPlaneta(nome, gravidade);
+		double gravidade;
+		try {
+			 gravidade = Double.parseDouble(PromptInput.readInput("GRAVIDADE"));
+			 Planeta.pushPlaneta(nome, gravidade);
+		}
+		catch (NumberFormatException naoEhNumero) {
+			System.out.println("[!] Este não é um número válido");
+		}
+		
 	}
 	
 	public static void mostrarPlanetas() {
@@ -21,7 +28,7 @@ public class PlanetaUi {
 		else {
 			for (int i = 0; i < lista.size(); i ++) {
 				Planeta p = (Planeta) lista.get(i);
-				System.out.printf("%d -  %s | g = %.2f\n", i, p.getNome(), p.getGravity());
+				System.out.printf("%d -  %s | g = %.2f m/s²\n", i + 1, p.getNome(), p.getGravity());
 			}
 		}
 		System.out.println();

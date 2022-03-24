@@ -17,29 +17,31 @@ public class MenuPrincipal {
 			System.out.println("[5] Ajuda");
 			System.out.println("[6] Sair");
 			
-			int opcaoSelecionada = Integer.parseInt(PromptInput.readInput());
-			switch (opcaoSelecionada) {
-				case 1:
-					PlanetaUi.uiCriarPlaneta();
-					break;
-				case 2:
-					PlanetaUi.mostrarPlanetas();
-					break;
-				case 4:
-					System.out.println("aqui deve executar script gravidade");
-					break;
-				case 5:
-					System.out.println("Ajuda: isso aqui serve para tal e tal");
-					break;
-				case 6:
-					System.out.println("-=- Volte sempre! :) -=-");
-					break;
-				default:
-					System.out.println("Opção inválida.");
-					break;
+			try {
+				int opcaoSelecionada = Integer.parseInt(PromptInput.readInput());
+				switch (opcaoSelecionada) {
+					case 1:
+						PlanetaUi.uiCriarPlaneta();
+						break;
+					case 2:
+						PlanetaUi.mostrarPlanetas();
+						break;
+					case 4:
+						System.out.println("aqui deve executar script gravidade");
+						break;
+					case 5:
+						System.out.println("Ajuda: isso aqui serve para tal e tal");
+						break;
+					case 6:
+						System.out.println("-=- Volte sempre! :) -=-");
+						break;
+					default:
+						System.out.println("Opção inválida.");
+						break;
+				}
+			} catch (NumberFormatException naoEhNumero) {
+				System.out.println("[!] Por favor, digite um número válido.");
 			}
-			
-			if(opcaoSelecionada == 5) break;
 		}
 	}
 }
